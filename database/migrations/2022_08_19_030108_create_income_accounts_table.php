@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('income_accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('cash');
-            $table->string('accounts');
-            $table->string('card');
+            $table->string('account');
             $table->timestamps();
         });
     }
