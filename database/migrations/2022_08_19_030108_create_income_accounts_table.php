@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('income_account', function (Blueprint $table) {
             $table->id();
             $table->string('account');
+            $table->string('category');
+            $table->string('amount');
             $table->timestamps();
         });
     }

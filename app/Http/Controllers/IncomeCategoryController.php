@@ -20,12 +20,12 @@ class IncomeCategoryController extends Controller
     // POST(CREATE)
     public function store(Request $request)
     {
-        $expense_account = \DB::insert('
-            INSERT into income_account (id, account) 
-            VALUES (?, ?)',  
-            [$request->id, $request->account]);
+        $income_account = \DB::insert('
+            INSERT into income_account (id, account, category, amount) 
+            VALUES (?, ?, ?, ?)',  
+            [$request->id, $request->account, $request->category, $request->amount]);
 
-        return $income_account;
+        return response()->json('Succesfuly added');
     }
 
     // GET 1 id(READ)
@@ -43,10 +43,14 @@ class IncomeCategoryController extends Controller
     public function update(Request $request, $id) 
     {
         $account = $request->account;
+        $category = $request->category;
+        $amount = $request->amount;
+        
+
         $income_account = \DB::update('
             UPDATE income_account 
-            set account = :account 
-            WHERE id = :id', ['id'=>$id,'account'=> $account]);
+            set account = :account, category = :category, amount = :amount 
+            WHERE id = :id', ['id'=>$id,'account'=> $account, 'category' => $category, 'amount' => $amount]);
 
         return $income_account;
     }

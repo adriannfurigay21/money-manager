@@ -18,6 +18,8 @@ return new class extends Migration
         Schema::create('expense_account', function (Blueprint $table) {
             $table->id();
             $table->string('account');
+            $table->string('category');
+            $table->string('amount');
             $table->timestamps();
         });
     }
