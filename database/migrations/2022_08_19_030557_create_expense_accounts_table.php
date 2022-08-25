@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('account');
             $table->string('category');
             $table->string('amount');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

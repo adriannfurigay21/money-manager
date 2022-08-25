@@ -16,25 +16,31 @@ use App\Http\Controllers\ExpenseCategoryController;
 |
 */
 
-Route::get('/income', function () {
-    return view('income');
+Route::get('/', function () {
+    return view('index');
 });
 
-Route::get('/expense', function () {
-    return view('expense');
-});
+// Route::get('/expense', function () {
+//     return view('expense');
+// });
+
+Route::get('/income', [IncomeCategoryController::class, 'income']);
+Route::get('/expense', [ExpenseCategoryController::class, 'expense']);
+Route::post('/store', [ExpenseCategoryController::class, 'store']);
+Route::post('/store', [IncomeCategoryController::class, 'store']);
+
 
 
 // // Expense Route
 // Route::get('/user', [ExpenseCategoryController::class, 'index']);
-Route::post('/store', [ExpenseCategoryController::class, 'store']);
+
 // Route::get('/show', [ExpenseCategoryController::class, 'show']);
 // Route::put('/update', [ExpenseCategoryController::class, 'update']);
 // Route::delete('/delete', [ExpenseCategoryController::class, 'destroy($id)']);
 
 // // Income Route
 // Route::get('/user', [IncomeCategoryController::class, 'index']);
- Route::post('/store', [IncomeCategoryController::class, 'store']);
+
 // Route::get('/show', [IncomeCategoryController::class, 'show']);
 // Route::put('/update', [IncomeCategoryController::class, 'update']);
 // Route::delete('/delete', [IncomeCategoryController::class, 'destroy($id)']);

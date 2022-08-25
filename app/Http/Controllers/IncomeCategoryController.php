@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class IncomeCategoryController extends Controller
 {
+
+    public function income()
+    {
+        return view('income');
+    }
     // GET(READ)
     public function index()
     {

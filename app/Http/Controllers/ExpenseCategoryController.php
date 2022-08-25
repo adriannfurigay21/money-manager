@@ -9,6 +9,12 @@ class ExpenseCategoryController extends Controller
 
 
 {
+
+    public function expense()
+    {
+        return view('expense');
+    }
+
     // GET(READ)
     public function index()
     {
@@ -28,7 +34,7 @@ class ExpenseCategoryController extends Controller
             VALUES (?, ?, ?, ?)',  
             [$request->id, $request->account, $request->category, $request->amount]);
 
-            return response()->json('Succesfuly added');
+        return response()->json('Succesfuly added');
     }
 
     // GET 1 id(READ)
