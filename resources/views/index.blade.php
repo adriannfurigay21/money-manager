@@ -13,9 +13,18 @@
 </head>
 <body>
 
-
+    
+    <nav class="navbar navbar-light bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          {{-- <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> --}}
+        </a>
+      </div>
+    </nav>
+    
     <div class="container">
       <div class="container mt-3">
+        {{-- <h1 class="display-5">Money Manager</h1> --}}
         <ul class="nav justify-content-center">
           <li class="nav-item">
             <a class="nav-link" href="#">Daily</a>
@@ -35,21 +44,24 @@
          
         </ul>
       </div>
-
+      <hr>
         <div class="container mt-5">
           <ul class="nav justify-content-center">
             <li class="nav-item">
               <a class="nav-link" href="{{url('income')}}">Income</a>
+              <p>{{ route('ShowIncome.show') }}</p>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('expense')}}">Expense</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mb-3">
               <a class="nav-link" href="#">Total</a>
             </li>
           </ul>
         </div>
+        <hr>
     </div>
+    
 
 
 

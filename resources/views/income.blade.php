@@ -10,7 +10,16 @@
 </head>
 <body>
 
-    
+
+      <nav class="navbar navbar-light bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            {{-- <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> --}}
+          </a>
+        </div>
+      </nav>
+
+  
 
     <div class="container mt-5">
       <h1 class="display-3">INCOME</h1>
@@ -37,7 +46,7 @@
 
         <div class="mb-3">
           <select for="category" name="category" class="form-select" required aria-label="select example">
-            <option select disabled value="">Select Category</option>
+            <option selected disabled value="">Select Category</option>
             <option name="category" value="Allowance">Allowance</option>
             <option name="category" value="Salary">Salary</option>
             <option name="category" value="Petty cash">Petty cash</option>
@@ -49,7 +58,7 @@
 
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Amount</span>
-          <input for="amount" type="text" name="amount" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+          <input for="validationCuston03" type="text" name="amount" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         
         <div class="col-auto">

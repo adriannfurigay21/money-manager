@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\IncomeCategoryController;
 use App\Http\Controllers\ExpenseCategoryController;
+use App\Http\Controllers\ShowIncomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::get('/expense', [ExpenseCategoryController::class, 'expense']);
 Route::post('/store', [ExpenseCategoryController::class, 'store']);
 Route::post('/store', [IncomeCategoryController::class, 'store']);
 
+Route::get('/show', [ShowIncomeController::class, 'show']);
 
 
 // // Expense Route

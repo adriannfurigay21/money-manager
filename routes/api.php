@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\IncomeCategoryController;
+use App\Http\Controllers\ShowIncomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('expenseaccounts', ExpenseCategoryController::class );
 Route::resource('incomeaccounts', IncomeCategoryController::class );
+Route::resource('ShowIncome', ShowIncomeController::class );

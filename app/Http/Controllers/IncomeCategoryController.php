@@ -12,15 +12,7 @@ class IncomeCategoryController extends Controller
         return view('income');
     }
     // GET(READ)
-    public function index()
-    {
-        $income_account = \DB::select('
-            SELECT * 
-            FROM income_account
-            ORDER BY created_at DESC');
-
-        return $income_account;
-    }
+ 
 
     // POST(CREATE)
     public function store(Request $request)
@@ -30,7 +22,8 @@ class IncomeCategoryController extends Controller
             VALUES (?, ?, ?, ?)',  
             [$request->id, $request->account, $request->category, $request->amount]);
 
-        return response()->json('Succesfuly added');
+        //return response()->json('Succesfuly added');
+        return 'Succesfuly added';
     }
 
     // GET 1 id(READ)
@@ -43,6 +36,7 @@ class IncomeCategoryController extends Controller
 
         return $income_account;
     }
+
 
      // PUT(UPDATE)
     public function update(Request $request, $id) 
@@ -68,3 +62,6 @@ class IncomeCategoryController extends Controller
         WHERE id = :id', ['id'=>$id]);
     }
 }
+
+
+
