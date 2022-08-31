@@ -49,13 +49,16 @@
           <ul class="nav justify-content-center">
             <li class="nav-item">
               <a class="nav-link" href="{{url('income')}}">Income</a>
-              <p>{{ route('ShowIncome.show') }}</p>
+              {{ $income_account }}
+              <p></p>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('expense')}}">Expense</a>
+              {{ $expense_account }}
             </li>
             <li class="nav-item mb-3">
               <a class="nav-link" href="#">Total</a>
+              {{ $total }}
             </li>
           </ul>
         </div>

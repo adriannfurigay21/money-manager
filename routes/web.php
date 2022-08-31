@@ -18,7 +18,10 @@ use App\Http\Controllers\ShowIncomeController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $income_account = DB::table('income_account')->sum('amount');
+    $expense_account = DB::table('expense_account')->sum('amount');
+    $total = $income_account - $expense_account;
+    return view('index', compact('income_account','expense_account','total'));
 });
 
 // Route::get('/expense', function () {
