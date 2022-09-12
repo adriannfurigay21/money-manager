@@ -33,7 +33,7 @@
             <a class="nav-link" href="#">Calendar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Weekly</a>
+            <a class="nav-link" href="{{ url('weekly') }}">Weekly</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Monthly</a>

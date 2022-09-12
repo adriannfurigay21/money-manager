@@ -39,7 +39,8 @@ Route::post('/store', [ExpenseCategoryController::class, 'store']);
 
 
 // Summary Controller
-Route::post('/weekly', [SummaryController::class, 'weekly']);
+Route::get('/weekly', [SummaryController::class, 'weekly']);
+Route::get('/monthly', [SummaryController::class, 'monthly']);
 
 // // Expense Route
 Route::post('/store', [ExpenseCategoryController::class, 'store']);

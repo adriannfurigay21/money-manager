@@ -23,7 +23,7 @@ class IncomeCategoryController extends Controller
             [$request->id, $request->account, $request->category, $request->amount]);
 
         //return response()->json('Succesfuly added');
-        return 'Succesfuly added';
+        return redirect('/');
     }
 
     // GET 1 id(READ)
