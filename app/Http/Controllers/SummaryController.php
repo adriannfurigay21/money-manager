@@ -15,7 +15,6 @@ class SummaryController extends Controller
     }
 
 
-
     public function weekly(Request $request) {
 
         // get all sunday
@@ -55,8 +54,7 @@ class SummaryController extends Controller
                     (
                         IFNULL(SUM(income_account.amount), 0)
                         -
-                        (
-                            SELECT
+                        (SELECT
                                 IFNULL(SUM(expense_account.amount), 0)
                             FROM expense_account
                             WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
@@ -77,7 +75,6 @@ class SummaryController extends Controller
         return response()->json($weekly);
 
     }
-
 
 
 
@@ -108,8 +105,7 @@ class SummaryController extends Controller
                     (
                         IFNULL(SUM(income_account.amount), 0)
                         -
-                        (
-                            SELECT
+                        (SELECT
                                 IFNULL(SUM(expense_account.amount), 0)
                             FROM expense_account
                             WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
@@ -126,6 +122,10 @@ class SummaryController extends Controller
         // Get he last number of the current month
         return $monthly;
     }
+
+
+
+    // ROUTE VIEW
 
 }
 

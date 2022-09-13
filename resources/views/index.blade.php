@@ -33,10 +33,10 @@
             <a class="nav-link" href="#">Calendar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('weekly') }}">Weekly</a>
+            <a class="nav-link" href="{{ url('weeklyViews') }}">Weekly</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Monthly</a>
+            <a class="nav-link" href="{{ url('monthlyViews') }}">Monthly</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Total</a>
@@ -49,16 +49,15 @@
           <ul class="nav justify-content-center">
             <li class="nav-item">
               <a class="nav-link" href="{{url('income')}}">Income</a>
-              {{ $income_account }}
-              <p></p>
+                <p class="text-primary">₱ {{ $income_account }}</p>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('expense')}}">Expense</a>
-              {{ $expense_account }}
+               <p class="text-danger">₱ {{ $expense_account }}</p>
             </li>
             <li class="nav-item mb-3">
               <a class="nav-link" href="#">Total</a>
-              {{ $total }}
+              ₱ {{ $total }}
             </li>
           </ul>
         </div>

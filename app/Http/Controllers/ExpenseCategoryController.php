@@ -34,7 +34,7 @@ class ExpenseCategoryController extends Controller
             VALUES (?, ?, ?, ?)',  
             [$request->id, $request->account, $request->category, $request->amount]);
 
-        //return response()->json('Succesfuly added');
+        return response()->json('Succesfuly added');
         return redirect('/');
     }
 

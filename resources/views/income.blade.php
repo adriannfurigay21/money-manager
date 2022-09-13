@@ -10,19 +10,19 @@
 </head>
 <body>
 
-
+<!-- 
       <nav class="navbar navbar-light bg-dark">
         <div class="container">
           <a class="navbar-brand" href="#">
             {{-- <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> --}}
           </a>
         </div>
-      </nav>
+      </nav> -->
 
   
 
     <div class="container mt-5">
-      <h1 class="display-3">INCOME</h1>
+      <h1 class="display-3 mb-5">INCOME</h1>
 
       <form action="{{ route('incomeaccounts.store') }}" method="POST" class="row g-3">
         {{-- <div class="input-group mb-3">

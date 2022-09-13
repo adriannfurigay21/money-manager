@@ -24,6 +24,20 @@ Route::get('/', function () {
     return view('index', compact('income_account','expense_account','total'));
 });
 
+Route::get('/weeklyViews', function () {
+    $income_account = DB::table('income_account')->sum('amount');
+    $expense_account = DB::table('expense_account')->sum('amount');
+    $total = $income_account - $expense_account;
+    return view('weeklyView', compact('income_account','expense_account','total'));
+});
+
+Route::get('/monthlyViews', function () {
+    $income_account = DB::table('income_account')->sum('amount');
+    $expense_account = DB::table('expense_account')->sum('amount');
+    $total = $income_account - $expense_account;
+    return view('monthlyView', compact('income_account','expense_account','total'));
+});
+
 // Route::get('/expense', function () {
 //     return view('expense');
 // });
@@ -33,7 +47,7 @@ Route::get('/expense', [ExpenseCategoryController::class, 'expense']);
 Route::post('/store', [ExpenseCategoryController::class, 'store']);
 Route::post('/store', [IncomeCategoryController::class, 'store']);
 
-
+Route::get('/weeklyView', [SummaryController::class, 'weeklyView']);
 
 
 

@@ -21,7 +21,7 @@
     </nav>
 
     <div class="container mt-5">
-      <h1 class="display-3">EXPENSE</h1>
+      <h1 class="display-3 mb-5">EXPENSE</h1>
       <form action="{{ route('expenseaccounts.store') }}" method="POST" class="row g-3">
           <div class="mb-3">
             <select for="account" class="form-select" name="account" required aria-label="select example">

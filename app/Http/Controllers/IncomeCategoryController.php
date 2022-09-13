@@ -11,8 +11,18 @@ class IncomeCategoryController extends Controller
     {
         return view('income');
     }
+    
+    
     // GET(READ)
- 
+    public function index()
+    {
+        $income_account = \DB::select('
+            SELECT * 
+            FROM income_account
+            ORDER BY created_at DESC');
+
+        return $income_account;
+    }
 
     // POST(CREATE)
     public function store(Request $request)
