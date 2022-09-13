@@ -34,7 +34,7 @@ class ExpenseCategoryController extends Controller
             VALUES (?, ?, ?, ?)',  
             [$request->id, $request->account, $request->category, $request->amount]);
 
-        return response()->json('Succesfuly added');
+        //return response()->json('Succesfuly added');
         return redirect('/');
     }
 
@@ -70,5 +70,7 @@ class ExpenseCategoryController extends Controller
         \DB::delete('
         DELETE FROM expense_account
         WHERE id = :id', ['id'=>$id]);
+
+        return response()->json('Succesfuly deleted');
     }
 }

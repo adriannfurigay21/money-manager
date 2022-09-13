@@ -70,6 +70,8 @@ class IncomeCategoryController extends Controller
         \DB::delete('
         DELETE FROM income_account
         WHERE id = :id', ['id'=>$id]);
+
+        return response()->json('Succesfuly deleted');
     }
 }
 

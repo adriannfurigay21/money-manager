@@ -27,6 +27,7 @@ class SummaryController extends Controller
 
         $weekly = [];
 
+        // lte - loop to end
         for($i = 0; $date->lte($endOfMonth); $i++) {
 
             //record start date
@@ -125,7 +126,8 @@ class SummaryController extends Controller
 
 
 
-    // ROUTE VIEW
+    // SUMMARY INCOME
+    public function 
 
 }
 
