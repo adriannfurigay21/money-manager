@@ -22,53 +22,57 @@
   
 
     <div class="container mt-5">
-      <h1 class="display-3 mb-5">INCOME</h1>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="display-3 mb-5">INCOME</h1>
+            <form action="{{ route('incomeaccounts.store') }}" method="POST" class="row g-3">
+              {{-- <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Account</span>
+                <input for="account" type="text" name="account" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Category   </span>
+                <input for="category" type="text" name="category" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+              </div> --}}
+              <div class="mb-3">
+                <select for="account" class="form-select" name="account" required aria-label="select example">
+                  <option selected disabled value="">Select Account</option>
+                  <option name="account" value="Cash">Cash</option>
+                  <option name="account" value="Accounts">Accounts</option>
+                  <option name="account" value="Card">Card</option>
+                </select>
+                <div class="invalid-feedback">Example invalid select feedback</div>
+              </div>
 
-      <form action="{{ route('incomeaccounts.store') }}" method="POST" class="row g-3">
-        {{-- <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Account</span>
-          <input for="account" type="text" name="account" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Category   </span>
-          <input for="category" type="text" name="category" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-        </div> --}}
-        <div class="mb-3">
-          <select for="account" class="form-select" name="account" required aria-label="select example">
-            <option selected disabled value="">Select Account</option>
-            <option name="account" value="Cash">Cash</option>
-            <option name="account" value="Accounts">Accounts</option>
-            <option name="account" value="Card">Card</option>
-          </select>
-          <div class="invalid-feedback">Example invalid select feedback</div>
-        </div>
+              <div class="mb-3">
+                <select for="category" name="category" class="form-select" required aria-label="select example">
+                  <option selected disabled value="">Select Category</option>
+                  <option name="category" value="Allowance">Allowance</option>
+                  <option name="category" value="Salary">Salary</option>
+                  <option name="category" value="Petty cash">Petty cash</option>
+                  <option name="category" value="Bonus">Bonus</option>
+                  <option name="category" value="Other">Other</option>
+                </select>
+                <div class="invalid-feedback">Example invalid select feedback</div>
+              </div>
 
-        <div class="mb-3">
-          <select for="category" name="category" class="form-select" required aria-label="select example">
-            <option selected disabled value="">Select Category</option>
-            <option name="category" value="Allowance">Allowance</option>
-            <option name="category" value="Salary">Salary</option>
-            <option name="category" value="Petty cash">Petty cash</option>
-            <option name="category" value="Bonus">Bonus</option>
-            <option name="category" value="Other">Other</option>
-          </select>
-          <div class="invalid-feedback">Example invalid select feedback</div>
-        </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Amount</span>
+                <input for="validationCuston03" type="text" name="amount" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+              </div>
+              
+              <div class="col-auto">
+                <button type="submit" class="btn btn-success mb-3">Save</button>
+              </div>
 
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Amount</span>
-          <input for="validationCuston03" type="text" name="amount" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+              <div class="col-auto">
+                <button onclick="history.back()" class="btn btn-danger mb-3">Back</button>
+              </div>
+            </form>
         </div>
-        
-        <div class="col-auto">
-          <button type="submit" class="btn btn-success mb-3">Save</button>
-        </div>
-
-        <div class="col-auto">
-          <button onclick="history.back()" class="btn btn-danger mb-3">Back</button>
-        </div>
-      </form>
+      </div>
+   
     </div>
     
     

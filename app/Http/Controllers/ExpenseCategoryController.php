@@ -71,6 +71,6 @@ class ExpenseCategoryController extends Controller
         DELETE FROM expense_account
         WHERE id = :id', ['id'=>$id]);
 
-        return response()->json('Succesfuly deleted');
+        return response()->json('Succesfully deleted');
     }
 }

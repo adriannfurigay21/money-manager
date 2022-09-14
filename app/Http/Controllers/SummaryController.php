@@ -89,8 +89,8 @@ class SummaryController extends Controller
 
             $date = Carbon::parse(date('Y-m-d', mktime(0,0,0,$buwan, 1, $year)));
 
-            $firstDay = Carbon::parse($date->copy()->firstOfMonth())->toDateString().'%';
-            $lastDay = Carbon::parse($date->copy()->endOfMonth())->toDateString().'%';
+            $x = Carbon::parse($date->copy()->firstOfMonth())->toDateString().'%';
+            $y = Carbon::parse($date->copy()->endOfMonth())->toDateString().'%';
 
             $currentMonth = $date->format('F Y');
             
@@ -109,13 +109,13 @@ class SummaryController extends Controller
                         (SELECT
                                 IFNULL(SUM(expense_account.amount), 0)
                             FROM expense_account
-                            WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
+                            WHERE created_at BETWEEN ?  AND DATE_ADD(?, INTERVAL 1 DAY))
                         ) AS 'Total'
                     
                     FROM income_account
-                    WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY)
+                    WHERE created_at BETWEEN ?  AND DATE_ADD(?, INTERVAL 1 DAY)
                 ",
-                [$currentMonth, $firstDay, $lastDay, $firstDay, $lastDay, $firstDay, $lastDay]
+                [$currentMonth, $x, $y, $x, $y, $x, $y]
             );
 
             $monthly[] = $query[0];
@@ -124,114 +124,4 @@ class SummaryController extends Controller
         return $monthly;
     }
 
-
-
-    // SUMMARY INCOME
-    public function 
-
 }
-
-
-
-
-
-
-
-// MONTHLY QUERY
-// $query = BD::select(
-//     "SELECT
-//         ? AS 'Month',
-//         IFNULL(SUM(i.amount), 0) AS 'Total Income',
-//         (
-//             (SELECT
-//                 IFNULL(SUM(e.amount), 0)
-//             FROM expenses e
-//             WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
-
-//             +
-
-//             (SELECT
-//                 IFNULL(SUM(t.fees), 0)
-//             FROM transfer t
-//             WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
-//         ) AS 'Total Expense',
-//         (
-//             IFNULL(SUM(i.amount), 0)
-
-//             -
-
-//                 (
-//                     (SELECT
-//                         IFNULL(SUM(e.amount), 0)
-//                     FROM expense e
-//                     WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
-//                 +
-
-//                     (SELECT
-//                         IFNULL(SUM(t.fees), 0)
-//                     FROM transfers t
-//                     WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
-//                 )
-//         ) AS 'Total'
-//     FROM incomes i
-//     WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY)
-//     ",
-//     [$currentMonth, $unangAraw, $hulingAraw, $unangAraw, $hulingAraw, $unangAraw, $hulingAraw, $unangAraw, $hulingAraw, $unangAraw, $hulingAraw]
-// );
-
-
-
-
-
-
-
-//WEEKLY QUERY
-// $query = DB::select(
-//     "SELECT
-//         ? AS 'Range',
-//         IFNULL(SUM(i.amount), 0) AS 'Total Income',
-//         (
-//             (SELECT
-//                 IFNULL(SUM(e.amount), 0)
-//             FROM expenses e
-//             WHERE cretaed_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
-//         +
-
-//             (SELECT
-//                 IFNULL(SUM(t.fees), 0)
-//             FROM transfers t
-//             WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
-//         ) AS 'Total Expense',
-//         (
-//             IFNULL(SUM(i.amount), 0)
-//             -
-//             (
-//                 (SELECT
-//                     IFNULL(SUM(e.amount), 0)
-//                 FROM expense e
-//                 WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY))
-//                 +
-//                 (SELECT
-//                     IFNULL(SUM(t.fees), 0)
-//                 FROM transfers t
-//                 WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY)))
-//             ) AS 'Total'
-        
-//         FROM incomes i
-//         WHERE created_at BETWEEN ? AND DATE_ADD(?, INTERVAL 1 DAY)
-//         ",
-
-//         [
-//             $range,
-//             Carbon::parse($startDate)->toDateString().'%',
-//             Carbon::parse($date)->toDateString().'%',
-//             Carbon::parse($startDate)->toDateString().'%',
-//             Carbon::parse($date)->toDateString().'%',
-//             Carbon::parse($startDate)->toDateString().'%',
-//             Carbon::parse($date)->toDateString().'%',
-//             Carbon::parse($startDate)->toDateString().'%',
-//             Carbon::parse($date)->toDateString().'%',
-//             Carbon::parse($startDate)->toDateString().'%',
-//             Carbon::parse($date)->toDateString().'%',
-//         ]
-// );
